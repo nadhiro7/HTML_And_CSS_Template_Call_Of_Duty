@@ -1,0 +1,682 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Cairo', sans-serif; */
+}
+body{
+    background-color: #000;
+}
+:root{
+    --color: #171717;
+    --text-color-1: #595858;
+    --text-color-2: #ededed;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.mode{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    background-color: #444444;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+}
+.mode a{
+    width: 100%;
+    height: 100%;
+    color: #ededed;
+    position: relative;
+}
+.mode a .fa{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+}
+/*  header  */
+header{
+    width: 100%;
+    height: 50px;
+    background-color: var(--color);
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    width: 11%;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.logo img{
+    width: 95%;
+}
+.logo:hover{
+   background-color: rgb(68 68 68 / 40%);
+}
+nav{
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.part_1,
+.part_2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 100%;
+}
+.part_1{
+    flex-basis: 40%;
+}
+.part_1 div,
+.part_2 div{
+    position: relative;
+    height: 100%;
+}
+.a1{
+    flex-basis: 20%;
+}
+.a3{
+    flex-basis: 25%;
+}
+.a2{
+    flex-basis: 35%;
+}
+nav div a{
+    text-decoration: none;
+    color: var(--text-color-1);
+    width: fit-content;
+    font-size: 13px;
+    transition: 1s;
+}
+nav div div{
+    transition: 1s;
+    cursor: pointer;
+}
+.in_up{
+    flex-basis: 32%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+.in_up p{
+    color: #e6e6e6;
+    position: absolute;
+    margin-left: -2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-53%);
+}
+.in_up a:hover{
+    color: white;
+    text-shadow: 1px 1px 5px white;
+    font-size: 14px;
+}
+.a1:hover,
+.a2:hover,
+.a3:hover,
+.a4:hover{
+    background-color: rgb(68 68 68 / 40%);
+}
+.a1:hover a,
+.a2:hover a,
+.a3:hover a,
+.a4:hover a{
+    color: white;
+    font-size: 15px;
+    text-shadow: 1px 1px 5px white;
+}
+.a4{
+    flex-basis: 34%;
+}
+.a5{
+    flex-basis: 32%;
+    background-color: rgb(33, 150, 243,40%);
+    border: 1px solid rgb(33, 150, 243,40%);
+    box-shadow: inset 0px 0px 3px 0px white;
+}
+.a5:hover a{
+    font-size: 15px;
+}
+.a5 a{
+    color: var(--text-color-2);
+    transition: 0.7s;
+}
+.part_2{
+    flex-basis: 35%;
+    justify-content: space-between;
+}
+.a5::after{
+    content: "";
+    background-color: rgb(33, 150, 243);
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    top: -1%;
+    transition: 1s;
+    box-shadow: 0 0 3px 0 white inset;
+}
+.a5::before{
+    content: "";
+    background-color: rgb(33, 150, 243);
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    bottom: 0%;
+    transition: 1s;
+    box-shadow: 0 0 3px 0 white inset;
+}
+.a5:hover{
+    text-shadow: 1px 1px 5px white;
+}
+.a5:hover::after,
+.a5:hover::before{
+    width: 100%;
+}
+/*   form  */
+.form{
+    width: 100%;
+    height: 120vh;
+    background-image: linear-gradient(to bottom , transparent , transparent) , linear-gradient(to top , #000 1%, transparent), linear-gradient(to left , #000 1%, transparent) , linear-gradient(to right , #000 1%, transparent) , url(../images/391171.jpg);
+    position: relative;
+}
+.form h1{
+    position: absolute;
+    font-size: 26px;
+    color: white;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+}
+.form img{
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 150px;
+}
+form{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form h2{
+    color: white;
+    font-weight: 900;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+.input{
+    width: 80%;
+}
+.input_1{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.input_1 label{
+    color: var(--text-color-2);
+    font-size: 17px;
+}
+.input_1 input{
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--text-color-2);
+}
+.input_1 input:focus{
+    padding: 10px;
+    font-size: 18px;
+}
+.input_1 input{
+    padding: 10px;
+    font-size: 18px;
+}
+.input button{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    background-color: #171717;
+    border: 1px solid #171717;
+    color: rgb(33, 150, 243 ,80%);
+    font-size: 17px;
+    box-shadow: 0 0 25px 0 rgb(33, 150, 243 , 20%) inset;
+    position: relative;
+    cursor: pointer;
+    transition: 0.7s;
+}
+.input button::after{
+    content: "";
+    background-color: rgb(76, 168, 243);
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    top: -1%;
+    left: 0%;
+    transition: 1s;
+    box-shadow: 0 0 10px 0 rgb(33, 150, 243), 0 0 10px 0 white inset;
+}
+.input button::before{
+    content: "";
+    background-color: rgb(33, 150, 243);
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transition: 1s;
+    box-shadow: 0 0 10px 0 rgb(33, 150, 243) , 0 0 10px 0 white inset;
+}
+.input button:hover::after,
+.input button:hover::before{
+    width: 100%;
+}
+.input button:hover{
+    text-shadow: 0px 0px 10px rgb(33 150 243 / 50%), 0px 0px 10px rgb(255 255 255 / 40%);
+}
+.input a{
+    position: relative;
+    left: 0%;
+    color: rgb(33, 150, 243);
+    font-size: 15px;
+}
+form p{
+    color: white;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+form p a{
+    font-size: 15px;
+    color: rgb(33, 150, 243);
+}
+form:last-child p{
+    margin-top: 30px;
+}
+/*  footer  */
+footer{
+    width: 100%;
+    height: 90vh;
+    padding-top: 5%;
+    margin-top: 3%;
+    position: relative;
+}
+footer::before{
+    content: "";
+    height: 2px;
+    background: linear-gradient(to right , #000 0% , #171717 2%, #a0b6ed 60%, #000 );
+    width: 100%;
+    position: absolute;
+    top: 0%;
+}
+.parent {
+    display: flex;
+    width: 60%;
+    height: 90%;
+    margin: 0 auto 5% auto;
+    flex-direction: column;
+}
+.parent div{
+    width: 100%;
+
+}
+.words{
+    height: 7%;
+    display: grid;
+    grid-template-columns: repeat(9 , 1fr);
+    grid-template-rows: 100%;
+    text-align: center;
+}
+.words p{
+    color: var(--text-color-1);
+    white-space: nowrap;
+    cursor: pointer;
+}
+.lines{
+    height: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding: 0 23px;
+    position: relative;
+}
+.lines::after{
+    content: "";
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    left: 17px;
+    background-color: var(--text-color-2);
+}
+.lines::before{
+    content: "";
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    right: 17px;
+    background-color: var(--text-color-2);
+}
+.lines span{
+    content: "";
+    height: 2px;
+    background-color: #444444;
+    width: 100%;
+    border-radius: 2px;
+}
+.icons{
+    height: 15%;
+    display: grid;
+    grid-template-columns: repeat(9 , 1fr);
+    grid-template-rows: 100%;
+}
+.icons div,
+.imgs div{
+    position: relative;
+    cursor: pointer;
+}
+.icons div img{
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+.imgs{
+    height: 38%;
+    display: grid;
+    grid-template-columns: 35% 15% 50%;
+    grid-template-rows: 100%;
+}
+.imgs div img{
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.imgs div .img_2{
+    width: 75%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+}
+.imgs div .img_3{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+}
+.txt{
+    height: 20%;
+    color: var(--text-color-1);
+    text-align: center;
+    font-size: 12px;
+    padding-top: 30px;
+    line-height: 1.5;
+    text-shadow: 0 0px 1px var(--text-color-2);
+}
+.but{
+    height: 10%;
+    position: relative;
+}
+.but button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 150px;
+    font-size: 17px;
+    cursor: pointer;
+    transform: translate(-50% , -50%);
+}
+.lng{
+    height: 7%;
+    position: relative;
+}
+.lng a{
+    height: 20px;
+    width: 29px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #171717;
+    background-size: contain;
+    background-image: url(../images/footer/900px-Flag_of_Algeria.svg.png);
+    transform: translate(-50% , -50%);
+    margin-top: 20px;
+}
+.pp{
+    padding-left: 50%;
+}
+.ppp{
+    padding-right: 40%;
+}
+/*  responsive  */
+@media only screen and (max-width: 699px){
+    footer{
+        height: 10vh;
+    }
+    footer::before{
+        display: none;
+    }
+    .words,
+    .lines,
+    .imgs,
+    .icons,
+    footer .txt{
+        display: none;
+    }
+    .part_1{
+        display: none;
+    }
+    .part_2{
+        flex-basis: 100%;
+    }
+    .part_2 div a{
+        font-size: 10px;
+    }
+    .logo img{
+        width: 100%;
+    }
+    .logo{
+        width: 20%;
+    }
+    nav {
+        width: 80%;
+    }
+    .a4 {
+        flex-basis: 31%;
+    }
+    .in_up {
+        flex-basis: 36%;
+    }
+    .a5 {
+    flex-basis: 33%;
+    }
+    .form{
+        height: 80vh;
+    }
+    .form h1 {
+        font-size: 16px;
+    }
+    .form img {
+        top: 2%;
+        width: 250px;
+    }
+    form {
+        width: 83%;
+        top: 25%;
+        height: 100%;
+    }
+    form h2 {
+        font-size: 13px;
+    }
+    .input_1 label {
+        font-size: 13px;
+    }
+    .input button {
+        font-size: 15px;
+    }
+    .input a {
+        left: 0;
+        font-size: 12px;
+    }
+    form p {
+        font-size: 13px;
+    }
+    form p a {
+        font-size: 12px;
+    }
+}
+@media only screen and (min-width: 700px) and (max-width: 899px){
+    footer {
+        margin-top: 0%;
+    }
+    .but{
+        display: none;
+    }
+    .txt {
+        height: 30%;
+    }
+    .words{
+        display: none;
+    }
+    .lines{
+        display: none;
+    }
+    .part_1 div a,
+    .part_2 div a{
+        font-size: 10px;
+        white-space: nowrap;
+    }
+    .in_up {
+        justify-content: space-between;
+    }
+    .part_2 {
+        flex-basis: 45%;
+        justify-content: space-between;
+    }
+    .part_1 {
+        flex-basis: 40%;
+        justify-content: space-evenly;
+    }
+    .form h1 {
+        font-size: 18px;
+    }
+    .form img {
+        top: 2%;
+        width: 350px;
+    }
+    form {
+        width: 55%;
+        top: 20%;
+    }
+    form h2 {
+        font-size: 15px;
+    }
+    .input_1 label {
+        font-size: 15px;
+    }
+    .input button {
+        font-size: 17px;
+    }
+    .input a {
+        left: 0;
+        font-size: 14px;
+    }
+    form p {
+        font-size: 15px;
+    }
+    form p a {
+        font-size: 14px;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 1250px){
+    footer {
+        margin-top: 0%;
+    }
+    .but{
+        display: none;
+    }
+    .txt {
+        height: 30%;
+    }
+    .words{
+        display: none;
+    }
+    .lines{
+        display: none;
+    }
+    .part_1 div a,
+    .part_2 div a{
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .in_up {
+        justify-content: space-between;
+    }
+    .part_2 {
+        flex-basis: 45%;
+        justify-content: space-between;
+    }
+    .part_1 {
+        flex-basis: 40%;
+        justify-content: space-evenly;
+    }
+    .form h1 {
+        font-size: 18px;
+    }
+    .form img {
+        top: 3%;
+        width: 400px;
+    }
+    form {
+        /* width: 50%; */
+        top: 25%;
+    }
+    form h2 {
+        font-size: 20px;
+    }
+    .input_1 label {
+        font-size: 16px;
+    }
+    .input button {
+        font-size: 18px;
+    }
+    .input a {
+        left: 0;
+        font-size: 15px;
+    }
+    form p {
+        font-size: 16px;
+    }
+    form p a {
+        font-size: 15px;
+    }
+}

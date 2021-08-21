@@ -1,0 +1,1612 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Cairo', sans-serif; */
+}
+body{
+    background-color: #000;
+}
+:root{
+    --color: #171717;
+    --text-color-1: #595858;
+    --text-color-2: #ededed;
+}
+::-webkit-scrollbar {
+    width: 7px;
+    margin-left: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color);
+  border-radius: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.mode{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    background-color: #444444;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+}
+.mode a{
+    width: 100%;
+    height: 100%;
+    color: #ededed;
+    position: relative;
+}
+.mode a .fa{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+}
+/*  header  */
+header{
+    height: 50px;
+    width: 100%;
+    position: sticky;
+    top: 0%;
+    background-color: var(--color);
+    display: grid;
+    grid-template-columns: repeat(20 , 1fr) repeat(4, 70px) 10px  60px 40px 40px 1px 1fr 1fr;
+    transition: 1s;
+    z-index: 5;
+    grid-template-areas: "logo logo logo  g g g g n n e e e e s s . . . . . . . ls ls . c c c . p p";
+}
+.l1{
+    grid-area: n;
+}
+.l2{
+    grid-area: s;
+}
+.l3{
+   grid-area: c;
+}
+.n2{
+    grid-area: e;
+}
+.logo{
+    background-color: var(--color);
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+    position: relative;
+    grid-area: logo;
+}
+.logo:hover{
+   background-color: rgb(68 68 68 / 40%);
+}
+.layer_1{
+    height: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0 0 10px;
+}
+.nav .nav-1{
+    position: relative;
+    cursor: pointer;
+    height: 50px;
+}
+.nav .nav-1 .a{
+    color: var(--text-color-1);
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50% , -50%);
+    transition: 1s;
+}
+.icon{
+    color: var(--text-color-1);
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    padding-left: 6px;
+    transition: 1s;
+}
+.icon-1{
+    color: var(--text-color-1);
+    position: absolute;
+    top: 35%;
+    left: 55%;
+    padding-left: 9px;
+    transition: 1s;
+}
+.nav ul{
+    position: relative;
+    background-color: var(--color);
+    width: 200px;
+    list-style: none;
+    display: none;
+    transition: 1s;
+}
+.nav ul li:not(:last-child){
+    border-bottom: 2px solid #444444 ;
+}
+.nav ul li a{
+    color: var(--text-color-1);
+    font-size: 13px;
+    padding-left: 10px;
+    transition: 1s;
+}
+.nav ul li{
+    padding: 5% 7%;
+}
+a{
+    text-decoration: none;
+}
+.nav{
+    display: flex;
+    flex-direction: column-reverse;
+    height: 50px;
+    transition: 1s;
+}
+.n1{
+    grid-area: g;
+}
+.nav:hover{
+    height: auto;
+}
+.nav:hover > ul
+{
+    display: block;
+}
+.nav:hover .icon,
+.nav ul:hover + .nav-1 .icon{
+    transform: rotate(180deg);
+    left: 53%;
+    color: white;
+    text-shadow: 0 0 0 3px white;
+}
+.nav:hover .icon-1,
+.nav ul:hover + .nav-1 .icon-1{
+    transform: rotate(180deg);
+    left: 52%;
+    color: white;
+    text-shadow: 0 0 0 3px white;
+    transform-origin: 50%;
+}
+.nav:hover .nav-1{
+    background-color: rgb(68 68 68 / 40%);
+}
+.nav .nav-1:hover .a,
+.nav ul:hover + .nav-1 .a
+{
+    left: 25%;
+    color: white;
+    text-shadow: 1px 1px 5px white;
+}
+.nav ul li a:hover{
+    font-size: 15px;
+    color: white;
+    text-shadow: 1px 1px 5px white;
+}
+
+.a2{
+    position: relative;
+    height: 50px;
+    width: fit-content;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.a2 a{
+    top: 50%;
+    left: 0%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: var(--text-color-1);
+    font-size: 14px;
+    font-weight: bold;
+}
+.a2:hover > a{
+    color: white;
+    text-shadow: 1px 1px 5px white;
+}
+.a3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    grid-area: ls;
+    position: relative;
+    height: 50px;
+}
+.a3 .a2{
+    flex-basis: 48%;
+    white-space: nowrap;
+}
+.a3::after{
+    content: "";
+    background-color: var(--text-color-1);
+    height: 17px;
+    width: 2px;
+    position: absolute;
+    top: 50%;
+    left: 43.5%;
+    transition: 1s;
+    transform: translate(-50%,-50%);
+}
+.l3:hover{
+    width: 100%;
+    background-color: rgb(68 68 68 / 40%);
+}
+.l4{
+    height: 50px;
+    white-space: nowrap;
+    cursor: pointer;
+    grid-area: p;
+    position: relative;
+    background-color: rgb(237, 237, 72, 40%);
+    border: 1px solid rgb(237, 237, 72, 40%);
+}
+.l4::after{
+    content: "";
+    background-color: rgb(237, 237, 72);
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    top: -1%;
+    transition: 1s;
+    box-shadow: 0 0 3px 0 white inset;
+}
+.l4::before{
+    content: "";
+    background-color: rgb(237, 237, 72);
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    bottom: 0%;
+    transition: 1s;
+    box-shadow: 0 0 3px 0 white inset;
+}
+.l4 a{
+    top: 50%;
+    left: 10%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+.l4:hover{
+    text-shadow: 1px 1px 5px white;
+}
+.l4:hover::after,
+.l4:hover::before{
+    width: 100%;
+}
+header:hover + .home{
+    z-index: -1;
+}
+/* home */
+.home{
+    height: calc(100vh - 80px);
+    background-image: linear-gradient(to top, var(--color) 3%, rgba(18, 18, 19, 0.7), rgba(4, 9, 30, 0.3)), url(images/391154.jpg);
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+.text{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    top: 60%;
+    left: 1%;
+    width: 70%;
+}
+.title{
+    flex-basis: 55%;
+    position: relative;
+}
+.title-1{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+.t{
+    flex-basis: 45%;
+    text-align: start;
+    padding-left: 10px;
+    font-size: 19px;
+    color: var(--text-color-2);
+    text-shadow: 3px 0 0 var(--color) ,1px 1px 5px white;
+}
+.btn{
+    position: absolute;
+    bottom: 3%;
+    width: 190px;
+    height: 60px;
+    left: 50%;
+    color: var(--text-color-2);
+    background-color: transparent;
+    transform: translateX(-50%);
+    border: 2px solid black;
+    font-size: 23px;
+    text-shadow: 3px 1px 0 var(--color);
+    cursor: pointer;
+    transition: 1s;
+}
+.btn::before{
+    content: "";
+    width: 0;
+    height: 56px;
+    background-color: var(--text-color-2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 1s;
+    z-index: -1;
+}
+.btn:hover::before{
+    width: 186px;
+}
+.btn:hover{
+    color: var(--color);
+    text-shadow: 1px 1px 5px white;
+    font-size: 24px;
+    box-shadow: 0 0 3px 0 white;
+}
+/*   galery  */
+.galery{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.main{
+    flex-basis: 68%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.col{
+    flex-basis: 50%;
+    height: calc(100vh / 2);
+    position: relative;
+    background-image: linear-gradient(to top,var(--color) 20%),url(images/391154.jpg);
+    cursor: pointer;
+}
+.images{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: 2s;
+}
+.col_p{
+    font-size: 18px;
+    color: var(--text-color-2);
+    text-shadow: 1px 1px 5px white;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to top , var(--color) 20%, transparent);
+}
+.col_p p{
+    position: relative;
+    top: 83%;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+    transition: 2s;
+    letter-spacing: 2px;
+}
+.col:hover .images{
+    filter: blur(3px);
+}
+.col:hover .col_p p{
+    top: 50%;
+}
+/* aside */
+aside{
+    flex-basis: 32%;
+    padding: 40px 40px 0 40px;
+}
+aside p{
+    font-size: 18px;
+    color: var(--text-color-2);
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+.column{
+    margin-top: 30px;
+    height: 70%;
+    overflow: auto;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    cursor: pointer;
+    align-items: center;
+}
+.column .row img{
+    flex-basis: 57%;
+    border: 1px solid var(--color);
+    height: 100px;
+}
+.column .row p{
+    width: 40%;
+    white-space: wrap;
+    font-size: 16px;
+    color: var(--color);
+    transition: 1s;
+}
+.row:hover p{
+    color: var(--text-color-2);
+}
+aside button{
+    margin: 15px auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 50px;
+    border-radius: 1px;
+    color: var(--color);
+    background-color: var(--text-color-2);
+    border: 1px solid black;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 1s;
+}
+aside button::before{
+    content: "";
+    width: 0;
+    height: 48px;
+    background-color: var(--color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 1s;
+    z-index: -1;
+}
+aside button:hover::before{
+    width: 128px;
+}
+aside button:hover{
+    color: var(--text-color-2);
+    text-shadow: 1px 1px 5px white;
+    box-shadow: 0 0 3px 0 white;
+}
+/*   game   */
+.game{
+    width: 100%;
+    height: 90vh;
+    background-color: #000;
+    position: relative;
+    display: block;
+}
+.game h3{
+    color: var(--text-color-2);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    font-size: 25px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    transform: translateX(-50%);
+}
+.col_g{
+    display: flex;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+    margin-top: 3%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+.col_g a{
+    flex-basis: calc(97% / 4);
+    height: 69%;
+    border: 1px solid var(--text-color-2);
+    color: var(--text-color-2);
+    text-align: center;
+    font-size: 19px;
+    padding-top: 20%;
+    transition: 2s;
+}
+.col_g .last {
+    flex-basis: 49.5%;
+    height: 29%;
+    padding-top: 2%;
+    padding-left: 38%;
+}
+.g1{
+    background-size: cover;
+    background-image: linear-gradient(to top , var(--color) 5% ,transparent) , url(images/game/images.jpg);
+}
+.g2{
+    background-size: cover;
+    background-image: linear-gradient(to top , var(--color) 5% ,transparent) , url(images/game/601ec181e1abc6.23825060.jpg);
+}
+.g3{
+    background-size: cover;
+    background-image: linear-gradient(to top , var(--color) 5% ,transparent) , url(images/game/Call-of-Duty-Modern-Warfare-3-PC-Game-Steam-Digital-Download_480x660_crop_center.jpg);
+}
+.g4{
+    background-size: cover;
+    background-image: linear-gradient(to top , var(--color) 5% ,transparent) , url(images/game/71Gyj1y8-GL._AC_SL1500_.jpg);
+}
+.last{
+    background-image: url(images/391154.jpg);
+    background-size: 78%;
+    background-repeat: no-repeat;
+}
+.col_g a:hover{
+    padding-top: 10%;
+    background: linear-gradient(to top , var(--color) 40% ,transparent) ;
+}
+.col_g .last:hover{
+    padding-top: 3.5%;
+    padding-left: 0%;
+}
+/*   sign up   */
+.sign_up{
+    margin-top: 100px;
+    width: 100%;
+    position: relative;
+    color: white;
+    height: 40vh;
+}
+.sign_up::before{
+    content: "";
+    height: 2px;
+    background: linear-gradient(to right , #000 0% , #171717 2%, #a0b6ed 60%, #000 );
+    width: 100%;
+    position: absolute;
+}
+.sign_up::after{
+    content: "";
+    height: 2px;
+    background: linear-gradient(to right , #000 0% , #171717 2%, #a0b6ed 60%, #000 );
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    box-shadow: 0 5px 0 5px #444444;
+}
+.sign{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.sign p{
+    flex-basis: 100%;
+    height: 50%;
+    font-size: 29.5px;
+    color: var(--text-color-1);
+    text-align: center;
+    padding-right: 22px;
+    white-space: nowrap;
+}
+.sign form{
+    flex-basis: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+.sign form label{
+    width: 100%;
+    color: #a0b6ed;
+    font-weight: 100;
+    
+}
+.sign form input{
+    width: 55%;
+    height: 40px;
+}
+.sign form button{
+    width: 35%;
+    height: 40px;
+    margin-right: 22px;
+    background-color: rgb(68 68 68 / 20%);
+    border: 0.5px solid transparent;
+    font-size: 17px;
+    color: var(--text-color-1);
+    box-shadow: 0 0 4px 0 white inset;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.sign form button::after{
+    content: "";
+    background-color: white;
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transition: 1s;
+}
+.sign form button::before{
+    content: "";
+    background-color: white;
+    height: 1px;
+    width: 0%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transition: 1s;
+}
+.sign form button:hover{
+    text-shadow: 0 0 3px white;
+    color: var(--text-color-2);
+}
+.sign form button:hover::after{
+    width: 100%;
+    box-shadow: -1px 6px 14px 3px rgb(255, 255, 255, 40%);
+}
+.sign form button:hover::before{
+    width: 100%;
+    box-shadow: -1px -6px 14px 3px rgb(255, 255, 255, 40%);
+}
+.sign form input::placeholder{
+    padding: 5px;
+    font-size: 15px;
+}
+*:focus{
+    outline: none;
+}
+.sign form input[type=email]:focus{
+    padding: 5px;
+    font-size: 15px;
+}
+/*  footer  */
+footer{
+    width: 100%;
+    height: 90vh;
+}
+.parent {
+    display: flex;
+    width: 80%;
+    height: 90%;
+    margin: 5% auto;
+    flex-direction: column;
+}
+.parent div{
+    width: 100%;
+
+}
+.words{
+    height: 7%;
+    display: grid;
+    grid-template-columns: repeat(9 , 1fr);
+    grid-template-rows: 100%;
+    text-align: center;
+}
+.words p{
+    color: var(--text-color-1);
+    white-space: nowrap;
+    cursor: pointer;
+}
+.lines{
+    height: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding: 0 23px;
+    position: relative;
+}
+.lines::after{
+    content: "";
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    left: 17px;
+    background-color: var(--text-color-2);
+}
+.lines::before{
+    content: "";
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    right: 17px;
+    background-color: var(--text-color-2);
+}
+.lines span{
+    content: "";
+    height: 2px;
+    background-color: #444444;
+    width: 45%;
+    border-radius: 2px;
+}
+.lines .spn{
+    content: "";
+    height: 3px;
+    width: 9.2%;
+}
+.icons{
+    height: 15%;
+    display: grid;
+    grid-template-columns: repeat(9 , 1fr);
+    grid-template-rows: 100%;
+}
+.icons div,
+.imgs div{
+    position: relative;
+    cursor: pointer;
+}
+.icons div img{
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+.imgs{
+    height: 38%;
+    display: grid;
+    grid-template-columns: 35% 15% 50%;
+    grid-template-rows: 100%;
+}
+.imgs div img{
+    width: 70%;
+    height: 25%;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.imgs div .img_2{
+    width: 75%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+}
+.imgs div .img_3{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+}
+.txt{
+    height: 20%;
+    color: var(--text-color-1);
+    text-align: center;
+    font-size: 12px;
+    padding-top: 30px;
+    line-height: 1.5;
+    text-shadow: 0 0px 1px var(--text-color-2);
+}
+.but{
+    height: 10%;
+    position: relative;
+}
+.but button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 150px;
+    font-size: 17px;
+    cursor: pointer;
+    transform: translate(-50% , -50%);
+}
+.lng{
+    height: 7%;
+    position: relative;
+}
+.lng a{
+    height: 20px;
+    width: 29px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #171717;
+    background-size: contain;
+    background-image: url(images/footer/900px-Flag_of_Algeria.svg.png);
+    transform: translate(-50% , -50%);
+    margin-top: 20px;
+}
+.pp{
+    padding-left: 50%;
+}
+.ppp{
+    padding-right: 40%;
+}
+/* responsive  */
+@media only screen and (max-width: 599px) {
+    header{
+        height: 150px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    header div{
+        position: relative;
+    }
+    .l1{
+        order: 5;
+        flex-basis: 33%;
+        text-align: center;
+    }
+    .l2{
+        order: 6;
+        flex-basis: 33%;
+        text-align: center;
+    }
+    .l3{
+        flex-basis: 30%;
+        text-align: center;
+        order: 3;
+    }
+    .a3::after{
+        left: 50%;
+    }
+    .n2{
+        order: 8;
+        flex-basis: 33%;
+        text-align: center;
+    }
+    .n1{
+        order: 7;
+        text-align: center;
+        flex-basis: 33%;
+    }
+    .a3{
+        order: 4;
+        flex-basis: 33%;
+        text-align: center;
+    }
+    .l4{
+        flex-basis: 25%;
+        text-align: center;
+        order: 2;
+    }
+    .nav .nav-1 .a ,
+    .a2 a,
+    .l4 a{
+        font-size: 10px;
+        position: absolute;
+        top: 50%;
+        white-space: nowrap;
+        left: 50%;
+        transform: translate(-50% , -50%);
+    }
+    .nav .nav-1 .a{
+        padding-left: 5px;
+    }
+    .nav ul{
+        width: 150px;
+    }
+    .nav ul li a{
+        color: var(--text-color-1);
+        font-size: 8px;
+        padding-left: 10px;
+    }
+    .nav ul li a:hover{
+        font-size: 10px;
+        color: white;
+        text-shadow: 1px 1px 5px white;
+    }
+    .l4 a{
+        white-space: nowrap;
+    }
+    .nav:hover .icon,
+    .nav ul:hover + .nav-1 .icon{
+        transform: rotate(180deg);
+        left: 50%;
+        color: white;
+        text-shadow: 0 0 0 3px white;
+        top: 40%;
+    }
+    .icon-1{
+        left: 65%;
+    }
+    .icon{
+        left: 60%;
+    }
+    .nav:hover .icon-1,
+    .nav ul:hover + .nav-1 .icon-1{
+        transform: rotate(180deg);
+        left: 55%;
+        color: white;
+        top: 40%;
+        text-shadow: 0 0 0 3px white;
+    }
+    
+    .logo{
+        flex-basis: 45%;
+        order: 1;
+    }
+    .layer_1{
+        width: 100%;
+    }
+    .t{
+        font-size: 9px;
+        flex-basis: 55%;
+        padding-left: 6px;
+    }
+    .title{
+        flex-basis: 45%;
+    }
+    .btn {
+        width: 100px;
+        height: 35px;
+        font-size: 12px;
+    }
+    .column .row img{
+        flex-basis: 38%;
+        width: 50%;
+        height: 100%;
+    }
+    .sign form {
+        padding: 0;
+    }
+    .sign form label {
+        font-size: 11px;
+    }
+    .sign form button {
+        width: 30%;
+        height: 30px;
+
+        font-size: 13px;
+    }
+    .sign form input {
+        width: 50%;
+        height: 30px;
+    }
+    .sign form input::placeholder{
+        font-size: 10px;
+    }
+    .sign form input[type=email]:focus{
+        font-size: 10px;
+    }
+    .column .row p {
+        width: 52%;
+        font-size: 11px;
+    }
+    .col_p{
+        font-size: 10px;
+        height: 100%;
+    }
+    aside{
+        flex-basis: 30%;
+        height: 40%;
+        padding: 20px 20px 0 20px;
+    }
+    .main{
+        flex-basis: 70%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    aside p {
+        font-size: 12px;
+    }
+    aside button{
+        font-size: 10px;
+        width: 75px;
+        height: 30px;
+    }
+    aside button::before{
+        height: 28px;
+    }
+    aside button:hover::before{
+        width: 73px;
+    }
+    .col_g .last{
+        font-size: 13px;
+        flex-basis: calc(96% / 5);
+        height: 29%; 
+        padding-top: 80%;
+        padding-left: 0%;
+        background-size: cover;
+        background-image: linear-gradient(to top , var(--color) 5% ,transparent),url(images/391154.jpg);
+    }
+    .sign p{
+        font-size: 11px;
+    }
+    .words{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        height: auto;
+    }
+    .ppp , .pp{
+        padding: 0;
+    }
+    .spr{
+        display: none;
+    }
+    .txt {
+        font-size: 9px;
+        padding-top: 5px;
+        margin-top: 25px;
+    }
+    .icons{
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: auto;
+        align-items: center;
+    }
+    .icons div{
+        width: 100px;
+        height: 50px;
+    }
+    .imgs {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .imgs  > div{
+        height: 50px;
+        right: 0%;
+        top: 0%;
+    }
+    .imgs div img{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        right: 0%;
+        top: 0%;
+        transform: translateY(0%);
+    }
+    .imgs div{
+        margin-top: 10px;
+    }
+    .imgs div .esrb{
+        height: 45px;
+        width: 40px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .imgs div  .cod{
+        height: 70px;
+        width: 100px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 13px;
+    }
+    .game h3{
+        top: 0%;
+        font-size: 19px;
+        white-space: nowrap;
+    }
+    .icon , .icon-1{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .fa {
+        font-size: 9px;
+    }
+    .but button {
+        height: 56%;
+        width: 100px;
+        font-size: 9px;
+    }
+    .parent{
+        height: 95%;
+    }
+    .btn::before{
+        height: 31px;
+    }
+    .btn:hover::before{
+        width: 96px;
+    }
+    .btn:hover{
+        font-size: 13px;
+    }
+    .home{
+        height: 70vh;
+    }
+    .game{
+        height: 220vh;
+    }
+    .galery{
+        height: 250vh;
+        flex-direction: column;
+    }
+    .col{
+        flex-basis: 25%;
+        width: 100%;
+    }
+    .column {
+        margin-top: 30px;
+        height: 60%;
+        overflow: auto;
+    }
+    .col_g{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 87%;
+        width: 57%;
+        justify-content: space-between;
+    }
+    .col_g a{
+        font-size: 12px;
+        flex-basis: calc(96% / 5);
+        padding-top: 80%;
+    }
+    .words p{
+        font-size: 12px;
+    }
+    footer{
+        height: 140vh;
+    }
+    .sign form input::placeholder{
+        padding: 5px;
+        font-size: 12px;
+    }
+    *:focus{
+        outline: none;
+    }
+    .sign form input[type=email]:focus{
+        padding: 5px;
+        font-size: 12px;
+    }
+
+}
+
+@media only screen and (min-width: 600px) and (max-width: 699px) {
+    header{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr  repeat(3, 55px) 30px 1fr 20px 15px 1fr 20px 1fr;
+        grid-template-areas: "logo g g n e e s . . . ls ls . c c . p";
+    }
+    .l1{
+        grid-area: n;
+    }
+    .l2{
+        grid-area: s;
+    }
+    .l3{
+       grid-area: c;
+    }
+    .n2{
+        grid-area: e;
+    }
+    .n1{
+    grid-area: g;
+    }
+    .a3{
+    grid-area: ls;
+    }
+    .l4{
+    grid-area: p;
+    }
+    .nav .nav-1 .a ,
+    .a2 a,
+    .l4 a{
+        font-size: 8px;
+    }
+    .nav .nav-1 .a{
+        padding-left: 5px;
+    }
+    .nav ul{
+        width: 150px;
+    }
+    .nav ul li a{
+        color: var(--text-color-1);
+        font-size: 8px;
+        padding-left: 10px;
+    }
+    .nav ul li a:hover{
+        font-size: 10px;
+        color: white;
+        text-shadow: 1px 1px 5px white;
+    }
+    .l4 a{
+        white-space: normal;
+    }
+    .nav:hover .icon,
+    .nav ul:hover + .nav-1 .icon{
+        transform: rotate(180deg);
+        left: 60%;
+        color: white;
+        text-shadow: 0 0 0 3px white;
+        top: 40%;
+    }
+    .nav:hover .icon-1,
+    .nav ul:hover + .nav-1 .icon-1{
+        transform: rotate(180deg);
+        left: 65%;
+        color: white;
+        top: 40%;
+        text-shadow: 0 0 0 3px white;
+    }
+    
+    .logo{
+        width: 100%;
+        grid-area: logo;
+    }
+    .layer_1{
+        width: 120%;
+    }
+    .t{
+        font-size: 11px;
+        flex-basis: 55%;
+        padding-left: 10px;
+    }
+    .title{
+        flex-basis: 45%;
+    }
+    .btn {
+        width: 140px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .column .row img{
+        flex-basis: 38%;
+        width: 50%;
+        height: 100%;
+    }
+    .column .row p {
+        width: 52%;
+        font-size: 11px;
+    }
+    .col_p{
+        font-size: 10px;
+        height: 100%;
+    }
+    aside{
+        flex: 40%;
+        padding: 20px 20px 0 20px;
+    }
+    .main{
+        flex-basis: 60%;
+    }
+    aside p {
+        font-size: 12px;
+    }
+    aside button{
+        font-size: 10px;
+        width: 75px;
+        height: 30px;
+    }
+    aside button::before{
+        height: 28px;
+    }
+    aside button:hover::before{
+        width: 73px;
+    }
+    .col_g .last{
+        font-size: 10px;
+    }
+    .sign p{
+        font-size: 20px;
+        padding: 0 25px;
+    }
+    .txt {
+        font-size: 9px;
+        padding-top: 5px;
+    }
+    .game h3{
+        top: 5%;
+        font-size: 20px;
+    }
+    .icon , .icon-1{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .fa {
+        font-size: 9px;
+    }
+    .but button {
+        height: 56%;
+        width: 100px;
+        font-size: 9px;
+    }
+    .btn::before{
+        height: 36px;
+    }
+    .btn:hover::before{
+        width: 136px;
+    }
+    .btn:hover{
+        font-size: 17px;
+    }
+    .home{
+        height: 70vh;
+    }
+    .game{
+        height: 60vh;
+    }
+    .galery{
+        height: 70vh;
+    }
+    .col{
+        height: calc(70vh / 2);
+    }
+    .column {
+        margin-top: 30px;
+        height: 60%;
+        overflow: auto;
+    }
+    .col_g a{
+        font-size: 11px;
+    }
+    .words p{
+        font-size: 12px;
+    }
+    footer{
+        height: 70vh;
+    }
+    .sign form input::placeholder{
+        padding: 5px;
+        font-size: 12px;
+    }
+    *:focus{
+        outline: none;
+    }
+    .sign form input[type=email]:focus{
+        padding: 5px;
+        font-size: 12px;
+    }
+    .sign form label{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 899px){
+    header{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr  repeat(3, 55px) 30px 1fr 20px 15px 1fr 20px 1fr;
+        grid-template-areas: "logo g g n e e s . . . ls ls . c c . p";
+    }
+    .l1{
+        grid-area: n;
+    }
+    .l2{
+        grid-area: s;
+    }
+    .l3{
+       grid-area: c;
+    }
+    .n2{
+        grid-area: e;
+    }
+    .n1{
+    grid-area: g;
+    }
+    .a3{
+    grid-area: ls;
+    }
+    .l4{
+    grid-area: p;
+    }
+    .nav .nav-1 .a ,
+    .a2 a,
+    .l4 a{
+        font-size: 10px;
+    }
+    .fa{
+        font-size: 11px;
+    }
+    .nav .nav-1 .a{
+        padding-left: 5px;
+    }
+    .nav ul{
+        width: 150px;
+    }
+    .nav ul li a{
+        color: var(--text-color-1);
+        font-size: 10px;
+        padding-left: 10px;
+    }
+    .nav ul li a:hover{
+        font-size: 12px;
+        color: white;
+        text-shadow: 1px 1px 5px white;
+    }
+    .l4 a{
+        white-space: normal;
+    }
+    .nav:hover .icon,
+    .nav ul:hover + .nav-1 .icon{
+        transform: rotate(180deg);
+        left: 70%;
+        color: white;
+        text-shadow: 0 0 0 3px white;
+    }
+    .nav:hover .icon-1,
+    .nav ul:hover + .nav-1 .icon-1{
+        transform: rotate(180deg);
+        left: 69%;
+        color: white;
+        text-shadow: 0 0 0 3px white;
+    }
+    
+    .logo{
+        width: 95%;
+        grid-area: logo;
+    }
+    .layer_1{
+        width: 100%;
+    }
+    .t{
+        font-size: 13px;
+        flex-basis: 55%;
+        padding-left: 10px;
+    }
+    .title{
+        flex-basis: 45%;
+    }
+    .btn {
+        width: 165px;
+        height: 45px;
+        font-size: 18px;
+    }
+    .btn::before{
+        height: 41px;
+    }
+    .btn:hover::before{
+        width: 161px;
+    }
+    .btn:hover{
+        font-size: 19px;
+    }
+    .column .row img{
+        flex-basis: 38%;
+        width: 50%;
+    }
+    .column .row p {
+        width: 52%;
+        font-size: 13px;
+    }
+    .col_p{
+        font-size: 12px;
+    }
+    aside{
+        flex: 40%;
+    }
+    .main{
+        flex-basis: 60%;
+    }
+    aside p {
+        font-size: 14px;
+    }
+    aside button{
+        font-size: 15px;
+        width: 100px;
+        height: 45px;
+    }
+    aside button::before{
+        height: 43px;
+    }
+    aside button:hover::before{
+        width: 98px;
+    }
+    .col_g .last{
+        font-size: 13px;
+    }
+    .sign p{
+        font-size: 20px;
+        padding: 0 25px;
+    }
+    .txt {
+        font-size: 10px;
+    }
+    .but button {
+        height: 56%;
+        width: 120px;
+        font-size: 13px;
+    }
+    .sign form input::placeholder{
+        padding: 5px;
+        font-size: 13px;
+    }
+    *:focus{
+        outline: none;
+    }
+    .sign form input[type=email]:focus{
+        padding: 5px;
+        font-size: 13px;
+    }
+    .sign form label{
+        font-size: 14px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 900px) and (max-width: 1250px) {
+    .nav .nav-1 .a ,
+    .a2 a,
+    .l4 a{
+        font-size: 14px;
+    }
+    .l4 a{
+        white-space: normal;
+    }
+    .logo{
+        width: 80%;
+    }
+    .layer_1{
+        width: 100%;
+    }
+    .fa{
+        font-size: 15px;
+    }
+    .t{
+        font-size: 17px;
+        flex-basis: 55%;
+        padding-left: 10px;
+    }
+    .title{
+        flex-basis: 45%;
+    }
+    .btn {
+        width: 180px;
+        height: 53px;
+        font-size: 22px;
+    }
+    .btn::before{
+        height: 49px;
+    }
+    .btn:hover::before{
+        width: 176px;
+    }
+    .btn:hover{
+        font-size: 23px;
+    }
+    .column .row img{
+        flex-basis: 38%;
+        width: 50%;
+    }
+    .column .row p {
+        width: 52%;
+        font-size: 14px;
+    }
+    .col_p{
+        font-size: 16px;
+    }
+    aside p {
+        font-size: 16px;
+    }
+    aside button{
+        font-size: 17px;
+    }
+    .col_g .last{
+        font-size: 16px;
+    }
+    .sign p{
+        font-size: 27px;
+    }
+}
